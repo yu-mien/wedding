@@ -222,6 +222,8 @@
                         <option value="" disabled selected>請選擇人數</option>
                         <option value="1人">1人</option><option value="2人">2人</option>
                         <option value="3人">3人</option><option value="4人">4人</option>
+                        <option value="5人">5人</option><option value="6人">6人</option>
+                        <option value="7人">7人</option><option value="8人">8人</option>
                     </select>
                 </div>
 
@@ -298,10 +300,13 @@
         function checkFoodAndSeat() {
             const guestVal = document.getElementById('guest-count').value;
             const foodSeatFields = document.getElementById('food-seat-fields');
-            if (guestVal !== "") { foodSeatFields.style.display = 'block'; } 
-            else {
+            const dietRadios = document.querySelectorAll('input[name="entry.667158463"]');
+            if (guestVal !== "") {
+                foodSeatFields.style.display = 'block';
+                dietRadios.forEach(r => r.required = true); // 出席者必須選擇葷素
+            } else {
                 foodSeatFields.style.display = 'none';
-                document.querySelectorAll('input[name="entry.667158463"]').forEach(r => r.checked = false);
+                dietRadios.forEach(r => { r.checked = false; r.required = false; });
                 document.querySelector('select[name="entry.337604443"]').value = "";
             }
         }
