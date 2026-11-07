@@ -312,6 +312,11 @@
             
             const form = e.target;
             const formData = new FormData(form);
+            // Google 表單分成三個區段（0: 基本資料、1: 出席人數及飲食、2: 喜帖），
+            // 直接送到 formResponse 時要告訴 Google 填寫者經過了哪些區段，後面區段的答案才會被收下。
+            // 若之後把 Google 表單改回單一頁面（刪除區段），請刪掉下面這兩行。
+            const attending = formData.get('entry.1612230982') === '期待參與，一定到場！';
+            formData.append('pageHistory', attending ? '0,1,2' : '0,2');
             const submitButton = document.getElementById('submit-button');
             const url = 'https://docs.google.com/forms/d/e/1FAIpQLSe7WhgKEuIkK121dCIaKZF2r23Dd-KlHcRcSrvckXlhJnJe9w/formResponse';
 
