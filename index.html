@@ -70,6 +70,9 @@
             background: var(--accent-soft);
         }
         .hero-frame video { display: block; width: 100%; height: 100%; object-fit: cover; }
+        /* iOS 低耗電模式會擋自動播放並顯示大播放鍵；藏起來，改成訪客第一次觸碰頁面時開始播放 */
+        .hero-frame video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
+        .hero-frame video::-webkit-media-controls { display: none !important; }
         .hero-content { padding-top: 36px; }
         .hero .slogan {
             font-family: var(--font-en); font-style: italic; font-size: 0.95rem;
@@ -560,6 +563,30 @@
             musicToggle.setAttribute('aria-pressed', 'false');
             musicToggle.setAttribute('aria-label', '播放背景音樂');
         });
+
+        // 首頁影片：iOS 低耗電模式或省電設定會擋掉自動播放，
+        // 這時改在訪客第一次觸碰、點擊或捲動頁面時開始播放
+        const heroVideo = document.querySelector('.hero-frame video');
+        heroVideo.muted = true;
+        function playHeroVideo() {
+            const attempt = heroVideo.play();
+            if (attempt) attempt.catch(() => {});
+        }
+        const unlockEvents = ['touchstart', 'click', 'scroll'];
+        function unlockHeroVideo() {
+            playHeroVideo();
+            unlockEvents.forEach(type => window.removeEventListener(type, unlockHeroVideo));
+        }
+        // 切到別的 App 再回來時，影片可能被暫停，回到前景就再播一次
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden && heroVideo.paused) playHeroVideo();
+        });
+        const firstAttempt = heroVideo.play();
+        if (firstAttempt) {
+            firstAttempt.catch(() => {
+                unlockEvents.forEach(type => window.addEventListener(type, unlockHeroVideo, { passive: true }));
+            });
+        }
     </script>
 </body>
 </html>

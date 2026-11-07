@@ -13,7 +13,8 @@
 - 手機確認後，再用桌機寬度檢查有沒有跑版。至少看 1280×800、1920×1080、768×1024，用原尺寸截圖逐區塊看清楚，並確認照片沒有被截到人物。
 - 首頁主視覺是影片 `assets/hero-video.mp4`（1080×1350，4:5，有 faststart），放在圓角相框裡完整顯示；`assets/hero-poster.jpg` 是影片第一格，當載入前的預覽圖。標語、名字、日期一律放在影片下方，不要壓在影片上。
 - `<video>` 必須保留 `autoplay muted loop playsinline webkit-playsinline`，少了 `muted` 或 `playsinline`，iPhone 不會自動播放。換影片時記得用 `ffmpeg -c copy -movflags +faststart` 把 moov 移到檔頭，並重新產生 poster。
-- 首頁影片的音軌是無聲的，沒有音樂。背景音樂另外放在 `assets/music.mp3`，右下角的音樂開關鈕會先用 HEAD 請求確認檔案存在才顯示；沒有這個檔案時按鈕自動隱藏。瀏覽器不允許有聲音的自動播放，所以音樂只會在訪客點按鈕後開始。
+- iPhone 開「低耗電模式」時，Safari 會擋掉所有影片自動播放（連 muted 也擋），並顯示大播放鍵。網頁已用 CSS 藏起這個播放鍵，改成在訪客第一次觸碰、點擊或捲動時呼叫 `play()`；回到前景時也會再試一次。這個情況無法在電腦瀏覽器重現，要用真的 iPhone 開低耗電模式測。
+- 首頁影片已移除音軌（原本是無聲的），沒有音樂。背景音樂另外放在 `assets/music.mp3`，右下角的音樂開關鈕會先用 HEAD 請求確認檔案存在才顯示；沒有這個檔案時按鈕自動隱藏。瀏覽器不允許有聲音的自動播放，所以音樂只會在訪客點按鈕後開始。
 - 目前的 `assets/music.mp3` 是帕海貝爾〈卡農〉，由美國空軍樂團 Strolling Strings 演奏（Frank Hudson 編曲，2004）。這是美國政府作品，屬於公有領域，不需要標示作者。來源：https://commons.wikimedia.org/wiki/File:Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3 ，原檔 10.3MB，已壓成 128kbps（約 3.5MB）。換音樂時要確認授權允許用在公開網站。
 
 ## 出席回函表單必須與 Google 表單保持一致
