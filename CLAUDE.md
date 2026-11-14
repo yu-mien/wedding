@@ -2,6 +2,10 @@
 
 單一檔案的靜態網站（`index.html`），沒有 build 步驟。本機預覽：`.claude/launch.json` 裡的 `wedding`（`python3 -m http.server 8000`）。
 
+## Git
+
+- 不要開新分支，直接在 `main` 上 commit 並 push（使用者明確指定）。
+
 ## 參考資料
 
 - `docs/reference/ui-ux-prompt-reference.md`：網路上分享的婚禮網站 UI/UX 指令，**僅供參考、尚未採用**。不要主動照它改網站；只有使用者明確指定要套用其中某部分時才使用。
