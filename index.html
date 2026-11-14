@@ -132,6 +132,39 @@
         .map-link:hover { color: var(--dark); }
         .nowrap { white-space: nowrap; }
 
+        /* Wedding map：手繪線條風格的交通地圖（inline SVG，沿用網站字體與配色） */
+        .map-card { margin-top: 24px; padding: 32px 12px 20px; }
+        .map-card .map-title {
+            font-family: var(--font-en); font-size: 0.95rem; font-weight: 600;
+            letter-spacing: 6px; color: var(--accent); text-transform: uppercase;
+        }
+        .map-card h3 { margin: 4px 0 20px; }
+        .venue-map { display: block; width: 100%; max-width: 520px; height: auto; margin: 0 auto; font-family: var(--font-tw); }
+        .venue-map .m-bg { fill: #f7f0ea; }
+        .venue-map .m-road-out path, .venue-map .m-road-out circle { stroke: #cdb7ab; stroke-width: 24; fill: #cdb7ab; }
+        .venue-map .m-road-in path, .venue-map .m-road-in circle { stroke: #fffbf7; stroke-width: 18; fill: #fffbf7; }
+        .venue-map path { fill: none !important; stroke-linecap: round; stroke-linejoin: round; }
+        .venue-map .m-road-out path.major { stroke-width: 30; }
+        .venue-map .m-road-in path.major { stroke-width: 24; }
+        .venue-map .m-arrow path { fill: #b6a19a !important; stroke: none; }
+        .venue-map .m-tree circle { fill: #dccbc1; }
+        .venue-map .m-tree line { stroke: #dccbc1; stroke-width: 3; stroke-linecap: round; }
+        .venue-map .m-label text { font-size: 34px; fill: #5e4f4c; letter-spacing: 3px; }
+        .venue-map .m-label.sm text, .venue-map .m-label text.sm, .venue-map text.m-label.sm { font-size: 28px; letter-spacing: 1px; fill: #7a6a66; }
+        .venue-map .m-dir text { font-size: 28px; fill: #a38f88; letter-spacing: 4px; }
+        .venue-map .m-north circle { fill: none; stroke: #b6a19a; stroke-width: 2; }
+        .venue-map .m-north .needle { fill: #b6a19a !important; stroke: none; }
+        .venue-map .m-north text { font-family: var(--font-en); font-size: 16px; font-weight: 600; fill: #b6a19a; }
+        .venue-map .m-poi rect { fill: none; stroke: #c9b6ad; stroke-width: 1.5; }
+        .venue-map .m-poi text { font-size: 22px; fill: #8c7b77; }
+        .venue-map .m-park circle { fill: #9c857d; }
+        .venue-map .m-park text, .venue-map .m-mrt text { font-family: var(--font-en); font-size: 24px; font-weight: 600; fill: #fff; }
+        .venue-map .m-mrt circle { fill: #b6a19a; stroke: #fffbf7; stroke-width: 4; }
+        .venue-map .m-venue .halo { fill: rgba(201, 143, 143, 0.18); }
+        .venue-map .m-venue .heart { fill: #c98f8f !important; stroke: #fff; stroke-width: 3; }
+        .venue-map .m-venue-name { font-size: 38px; font-weight: 600; fill: #4a3e3d; letter-spacing: 4px; }
+        .venue-map .m-venue-en { font-family: var(--font-en); font-style: italic; font-size: 26px; fill: #a38f88; letter-spacing: 1px; }
+
         /* Accordion */
         .accordion-card { margin-top: 24px; padding: 0; text-align: left; overflow: hidden; }
         .accordion {
@@ -323,6 +356,106 @@
                         開啟地圖導航
                     </a>
                 </div>
+            </div>
+
+            <div class="card map-card">
+                <div class="map-title">Wedding Map</div>
+                <h3>交通地圖</h3>
+                <svg class="venue-map" viewBox="0 0 1000 1080" role="img" aria-labelledby="map-title map-desc">
+                <title id="map-title">婚宴場地交通地圖</title>
+                <desc id="map-desc">蘭克斯特位於崇德路二段西側、崇德五路與文心路之間，捷運文心崇德站步行可達；特約停車場為崇德六路上的松竹停車場，餐廳旁另有城市車旅停車場。</desc>
+                <rect x="0" y="0" width="1000" height="1080" rx="28" class="m-bg"/>
+                <g class="m-tree"><line x1="290" y1="400" x2="290" y2="386"/><circle cx="290" cy="376" r="12"/></g>
+                <g class="m-tree"><line x1="345" y1="445" x2="345" y2="431"/><circle cx="345" cy="421" r="12"/></g>
+                <g class="m-tree"><line x1="270" y1="480" x2="270" y2="466"/><circle cx="270" cy="456" r="12"/></g>
+                <g class="m-tree"><line x1="610" y1="385" x2="610" y2="371"/><circle cx="610" cy="361" r="12"/></g>
+                <g class="m-tree"><line x1="665" y1="430" x2="665" y2="416"/><circle cx="665" cy="406" r="12"/></g>
+                <g class="m-tree"><line x1="275" y1="850" x2="275" y2="836"/><circle cx="275" cy="826" r="12"/></g>
+                <g class="m-tree"><line x1="335" y1="895" x2="335" y2="881"/><circle cx="335" cy="871" r="12"/></g>
+                <g class="m-tree"><line x1="395" y1="835" x2="395" y2="821"/><circle cx="395" cy="811" r="12"/></g>
+                <g class="m-tree"><line x1="135" y1="690" x2="135" y2="676"/><circle cx="135" cy="666" r="12"/></g>
+                <g class="m-tree"><line x1="135" y1="840" x2="135" y2="826"/><circle cx="135" cy="816" r="12"/></g>
+                <g class="m-tree"><line x1="905" y1="250" x2="905" y2="236"/><circle cx="905" cy="226" r="12"/></g>
+                <g class="m-tree"><line x1="915" y1="850" x2="915" y2="836"/><circle cx="915" cy="826" r="12"/></g>
+                <g class="m-tree"><line x1="915" y1="770" x2="915" y2="756"/><circle cx="915" cy="746" r="12"/></g>
+                <g class="m-road-out">
+                <path d="M40 190 H960" class="major"/>
+                <path d="M40 290 H960" class="major"/>
+                <path d="M40 950 H960" class="major"/>
+                <path d="M80 120 V1000"/>
+                <path d="M190 120 V1000"/>
+                <path d="M730 120 V1000"/>
+                <path d="M850 120 V1000"/>
+                <path d="M450 290 V450 C450 525 500 560 580 560 H960"/>
+                <path d="M455 500 Q470 530 470 570 V950"/>
+                <path d="M235 625 H800"/>
+                <path d="M235 745 H800"/>
+                <circle cx="80" cy="190" r="36"/>
+                <circle cx="190" cy="190" r="36"/>
+                <circle cx="190" cy="290" r="36"/>
+                <circle cx="730" cy="290" r="36"/>
+                </g><g class="m-road-in">
+                <path d="M40 190 H960" class="major"/>
+                <path d="M40 290 H960" class="major"/>
+                <path d="M40 950 H960" class="major"/>
+                <path d="M80 120 V1000"/>
+                <path d="M190 120 V1000"/>
+                <path d="M730 120 V1000"/>
+                <path d="M850 120 V1000"/>
+                <path d="M450 290 V450 C450 525 500 560 580 560 H960"/>
+                <path d="M455 500 Q470 530 470 570 V950"/>
+                <path d="M235 625 H800"/>
+                <path d="M235 745 H800"/>
+                <circle cx="80" cy="190" r="31"/>
+                <circle cx="190" cy="190" r="31"/>
+                <circle cx="190" cy="290" r="31"/>
+                <circle cx="730" cy="290" r="31"/>
+                </g>
+                <g class="m-arrow">
+                <path d="M73 372 L87 372 L80 386 Z"/>
+                <path d="M183 372 L197 372 L190 386 Z"/>
+                <path d="M443 372 L457 372 L450 386 Z"/>
+                <path d="M723 382 L737 382 L730 396 Z"/>
+                <path d="M843 382 L857 382 L850 396 Z"/>
+                <path d="M322 283 L322 297 L336 290 Z"/>
+                <path d="M242 943 L242 957 L256 950 Z"/>
+                <path d="M652 553 L652 567 L666 560 Z"/>
+                </g>
+                <g class="m-label">
+                <text x="470" y="170" text-anchor="middle">中山高速公路</text>
+                <text x="470" y="270" text-anchor="middle" class="sm">環中路／74號快速道路</text>
+                <text x="650" y="543" text-anchor="middle">松竹路</text>
+                <text x="600" y="608" text-anchor="middle">崇德六路</text>
+                <text x="600" y="728" text-anchor="middle">崇德五路</text>
+                <text x="340" y="930" text-anchor="middle">文心路</text>
+                <text x="117" y="410" class="" text-anchor="middle">台</text><text x="117" y="446" class="" text-anchor="middle">灣</text><text x="117" y="482" class="" text-anchor="middle">大</text><text x="117" y="518" class="" text-anchor="middle">道</text><text x="117" y="554" class="" text-anchor="middle">三</text><text x="117" y="590" class="" text-anchor="middle">段</text>
+                <text x="227" y="400" class="" text-anchor="middle">中</text><text x="227" y="436" class="" text-anchor="middle">清</text><text x="227" y="472" class="" text-anchor="middle">路</text><text x="227" y="508" class="" text-anchor="middle">二</text><text x="227" y="544" class="" text-anchor="middle">段</text>
+                <text x="437" y="800" class="" text-anchor="middle">河</text><text x="437" y="836" class="" text-anchor="middle">北</text><text x="437" y="872" class="" text-anchor="middle">路</text>
+                <text x="767" y="368" class="" text-anchor="middle">崇</text><text x="767" y="404" class="" text-anchor="middle">德</text><text x="767" y="440" class="" text-anchor="middle">路</text><text x="767" y="476" class="" text-anchor="middle">二</text><text x="767" y="512" class="" text-anchor="middle">段</text>
+                <text x="887" y="640" class="" text-anchor="middle">北</text><text x="887" y="676" class="" text-anchor="middle">屯</text><text x="887" y="712" class="" text-anchor="middle">路</text>
+                </g>
+                <g class="m-label sm">
+                <text x="80" y="70" text-anchor="middle">中港</text><text x="80" y="100" text-anchor="middle">交流道</text>
+                <text x="190" y="70" text-anchor="middle">中清</text><text x="190" y="100" text-anchor="middle">交流道</text>
+                </g>
+                <g class="m-dir">
+                <text x="790" y="92" text-anchor="middle">往豐原</text>
+                <text x="135" y="1052" text-anchor="middle">往車站</text>
+                <text x="790" y="1052" text-anchor="middle">往市區</text>
+                <text x="975" y="1000" text-anchor="end">往大坑</text>
+                </g>
+                <g class="m-north" transform="translate(935 405)"><circle r="30"/><path d="M0 -22 L9 4 L0 -2 L-9 4 Z" class="needle"/><text y="20" text-anchor="middle">N</text></g>
+                <g class="m-poi"><rect x="746" y="790" width="88" height="72" rx="6"/><text x="790" y="820" text-anchor="middle">太子</text><text x="790" y="848" text-anchor="middle">金融中心</text></g>
+                <g class="m-park"><circle cx="330" cy="625" r="20"/><text x="330" y="634" text-anchor="middle">P</text></g>
+                <g class="m-label sm"><text x="342" y="682" text-anchor="middle">蘭克斯特特約停車場</text><text x="342" y="714" text-anchor="middle">（松竹停車場）</text></g>
+                <g class="m-park"><circle cx="560" cy="900" r="20"/><text x="560" y="909" text-anchor="middle">P</text></g>
+                <text x="590" y="910" class="m-label sm">城市車旅</text>
+                <g class="m-mrt"><circle cx="620" cy="950" r="20"/><text x="620" y="958" text-anchor="middle">M</text></g>
+                <g class="m-label sm"><text x="600" y="1004" text-anchor="middle">捷運文心崇德站</text></g>
+                <g class="m-venue" transform="translate(690 830)"><circle r="44" class="halo"/><path d="M0 18 C-30 -2 -24 -26 -10 -26 C-4 -26 0 -21 0 -16 C0 -21 4 -26 10 -26 C24 -26 30 -2 0 18 Z" class="heart"/></g>
+                <text x="636" y="826" text-anchor="end" class="m-venue-name">蘭克斯特</text>
+                <text x="636" y="856" text-anchor="end" class="m-venue-en">Lancaster House</text>
+                </svg>
             </div>
 
             <div class="card accordion-card">
