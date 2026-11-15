@@ -131,6 +131,16 @@
         }
         .map-link:hover { color: var(--dark); }
         .nowrap { white-space: nowrap; }
+        .inline-map-link { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+        .inline-map-link:hover { color: var(--dark); }
+
+        /* About */
+        .about-text { text-align: center; line-height: 2.1; letter-spacing: 1.5px; font-size: 1rem; }
+        .about-text p + p { margin-top: 22px; }
+
+        /* RSVP closing */
+        .rsvp-closing { text-align: center; margin-top: 40px; line-height: 2; letter-spacing: 1.5px; font-size: 0.95rem; color: #6b5d5b; }
+        .rsvp-closing p + p { margin-top: 18px; }
 
         /* Accordion */
         .accordion-card { margin-top: 24px; padding: 0; text-align: left; overflow: hidden; }
@@ -173,6 +183,8 @@
         }
         select:invalid { color: #a89a97; }
         input::placeholder, textarea::placeholder { color: #b5a9a6; }
+        /* 地址欄提示字較長，手機上縮小提示字（輸入框本身維持 16px，避免 iOS 放大畫面） */
+        #f-address::placeholder { font-size: 0.85rem; }
         input:focus, select:focus, textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(182, 161, 154, 0.15); }
         textarea { resize: vertical; }
         #dynamic-fields, #food-seat-fields { display: none; }
@@ -221,6 +233,7 @@
 
         /* Desktop */
         @media (min-width: 768px) {
+            #f-address::placeholder { font-size: 1rem; }
             .music-toggle { right: 32px; bottom: 32px; width: 56px; height: 56px; }
             .navbar { padding: 0 48px; }
             .navbar .links { gap: 40px; }
@@ -260,7 +273,7 @@
     </div>
 
     <nav class="navbar">
-        <a href="#about" class="brand">Y &amp; M</a>
+        <a href="#home" class="brand">Y &amp; M</a>
         <div class="links">
             <a href="#about">關於我們</a>
             <a href="#details">婚禮詳情</a>
@@ -268,7 +281,7 @@
         </div>
     </nav>
 
-    <section id="about" class="hero">
+    <section id="home" class="hero">
         <div class="hero-frame">
             <!-- iOS Safari 自動播放必須同時有 muted、playsinline -->
             <video src="assets/hero-video.mp4" poster="assets/hero-poster.jpg" autoplay muted loop playsinline webkit-playsinline preload="auto" aria-label="YUAN 與 MIEN 的婚紗照影片"></video>
@@ -281,9 +294,24 @@
         </div>
     </section>
 
+    <section id="about" class="section about-section">
+        <div class="section-inner">
+            <div class="section-heading">
+                <div class="en">ABOUT US</div>
+                <h2>關於我們</h2>
+                <div class="heading-divider"></div>
+            </div>
+            <div class="about-text">
+                <p>從相遇的心動，到相伴的安心。</p>
+                <p>讓平凡的日子有了閃閃發光的模樣，<br>也讓未來的每一步，都充滿期待。</p>
+                <p>往後的三餐四季、歲歲年年，<br>都想與你一起。</p>
+            </div>
+        </div>
+    </section>
+
     <section id="countdown-section" class="countdown-section">
         <div class="section-heading">
-            <div class="en">The Big Day</div>
+            <div class="en">THE COUNTDOWN</div>
             <h2>婚禮倒數</h2>
             <div class="heading-divider"></div>
         </div>
@@ -293,7 +321,7 @@
     <section id="details" class="section alt">
         <div class="section-inner">
             <div class="section-heading">
-                <div class="en">Details</div>
+                <div class="en">WEDDING DETAILS</div>
                 <h2>婚禮資訊</h2>
                 <div class="heading-divider"></div>
             </div>
@@ -307,7 +335,7 @@
                     <p class="primary">2027 年 01 月 31 日 (星期日)</p>
                     <p class="secondary">January 31, 2027</p>
                     <div class="card-divider"></div>
-                    <p class="strong">11:30 入席 ｜ 12:00 開席</p>
+                    <p class="strong">12:00 入席 ｜ 12:16 開席</p>
                 </div>
 
                 <div class="card">
@@ -336,17 +364,17 @@
                 <div class="panel">
                     <div class="panel-inner">
                         <div class="transport-item">
-                            <div class="badge">捷</div>
+                            <div class="badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="14" rx="3"/><line x1="5" y1="11" x2="19" y2="11"/><circle cx="9" cy="14" r="0.6" fill="currentColor"/><circle cx="15" cy="14" r="0.6" fill="currentColor"/><path d="M8 21l2-4M16 21l-2-4"/></svg></div>
                             <div>
                                 <h4>大眾運輸</h4>
-                                <p>搭乘高鐵至台中站，轉乘台中捷運綠線至 <span class="nowrap">捷運文心崇德站</span>，沿崇德路步行約 10 分鐘（或轉乘公車）即可抵達。</p>
+                                <p>搭乘高鐵至台中站，轉乘台中捷運綠線至 <span class="nowrap">捷運文心崇德站</span>，沿崇德路步行約10分鐘（或轉乘公車）即可抵達。</p>
                             </div>
                         </div>
                         <div class="transport-item">
-                            <div class="badge">車</div>
+                            <div class="badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V12l2-5h10l2 5v4"/><path d="M3 16h18v2H3z"/><line x1="5" y1="12" x2="19" y2="12"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="16.5" cy="18.5" r="1.5"/></svg></div>
                             <div>
                                 <h4>開車前往</h4>
-                                <p>建議將愛車停放於周邊特約 <span class="nowrap">松竹停車場</span>（可享場地專屬停車時數折抵）。</p>
+                                <p>車輛可停放於特約 <a class="inline-map-link nowrap" href="https://www.google.com/maps/search/?api=1&amp;query=%E6%9D%BE%E7%AB%B9%E5%81%9C%E8%BB%8A%E5%A0%B4%20%E5%B4%87%E5%BE%B7%E5%85%AD%E8%B7%AF%20%E5%8F%B0%E4%B8%AD" target="_blank" rel="noopener">松竹停車場</a>，入口位於崇德六路（可享場地專屬停車時數折抵）。</p>
                             </div>
                         </div>
                     </div>
@@ -358,7 +386,7 @@
     <section id="rsvp" class="section">
         <div class="section-inner">
             <div class="section-heading">
-                <div class="en">Attendance</div>
+                <div class="en">RESPONSE FORM</div>
                 <h2>出席回函</h2>
                 <div class="heading-divider"></div>
             </div>
@@ -387,8 +415,8 @@
                     <label for="f-attendance">出席意願 <span class="en">/ ATTENDANCE</span> <span class="req">*</span></label>
                     <select id="f-attendance" name="entry.1612230982" required onchange="toggleDynamicFields()">
                         <option value="" disabled selected>請選擇出席意願</option>
-                        <option value="期待參與，一定到場！">期待參與，一定到場！</option>
-                        <option value="無法到場，但心意隨行">無法到場，但心意隨行</option>
+                        <option value="如期出席，期待見面">如期出席，期待見面</option>
+                        <option value="無法出席，心意隨行">無法出席，心意隨行</option>
                     </select>
                 </div>
 
@@ -406,7 +434,7 @@
 
                     <div id="food-seat-fields">
                         <div class="form-group">
-                            <label for="f-diet">飲食習慣 <span class="en">/ DIETARY</span> <span class="req">*</span></label>
+                            <label for="f-diet">飲食習慣 <span class="en">/ DIETARY PREFERENCE</span> <span class="req">*</span></label>
                             <select id="f-diet" name="entry.667158463">
                                 <option value="" disabled selected>請選擇飲食習慣</option>
                                 <option value="葷食">葷食</option>
@@ -414,7 +442,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="f-kids-chair">兒童座椅需求 <span class="en">/ KIDS CHAIR</span></label>
+                            <label for="f-kids-chair">兒童座椅數量 <span class="en">/ KIDS CHAIR</span></label>
                             <select id="f-kids-chair" name="entry.337604443">
                                 <option value="">不需要</option>
                                 <option value="1張">1張</option><option value="2張">2張</option><option value="3張">3張</option>
@@ -434,15 +462,20 @@
 
                 <div class="form-group">
                     <label for="f-address">地址或信箱 <span class="en">/ ADDRESS / EMAIL</span> <span class="req">*</span></label>
-                    <input type="text" id="f-address" name="entry.559368096" placeholder="紙本請填地址，電子喜帖請填 Email" required>
+                    <input type="text" id="f-address" name="entry.559368096" placeholder="紙本喜帖請填地址，電子喜帖請填 Email" required>
                 </div>
                 <div class="form-group">
                     <label for="f-blessings">給我們的祝福語 <span class="en">/ BLESSINGS</span></label>
-                    <textarea id="f-blessings" name="entry.1656981074" rows="4" placeholder="想說什麼都可以寫在這裡..."></textarea>
+                    <textarea id="f-blessings" name="entry.1656981074" rows="4" placeholder="寫下想給我們的祝福與悄悄話"></textarea>
                 </div>
 
                 <button type="submit" id="submit-button" class="submit-btn">送出回函<span class="en">Submit</span></button>
             </form>
+
+            <div class="rsvp-closing">
+                <p>請於 2026 年 11 月 30 日前完成回覆<br>感謝您的祝福</p>
+                <p>期待婚禮當天與大家相聚<br>共同留下美好的回憶</p>
+            </div>
         </div>
     </section>
 
@@ -488,7 +521,7 @@
             const attendance = document.querySelector('select[name="entry.1612230982"]').value;
             const dynamicFields = document.getElementById('dynamic-fields');
             const guestSelect = document.getElementById('guest-count');
-            if (attendance === '期待參與，一定到場！') {
+            if (attendance === '如期出席，期待見面') {
                 dynamicFields.style.display = 'block'; guestSelect.required = true;
             } else {
                 dynamicFields.style.display = 'none'; guestSelect.required = false; guestSelect.value = ""; checkFoodAndSeat();
@@ -517,7 +550,7 @@
             // Google 表單分成三個區段（0: 基本資料、1: 出席人數及飲食、2: 喜帖），
             // 直接送到 formResponse 時要告訴 Google 填寫者經過了哪些區段，後面區段的答案才會被收下。
             // 若之後把 Google 表單改回單一頁面（刪除區段），請刪掉下面這兩行。
-            const attending = formData.get('entry.1612230982') === '期待參與，一定到場！';
+            const attending = formData.get('entry.1612230982') === '如期出席，期待見面';
             formData.append('pageHistory', attending ? '0,1,2' : '0,2');
             const submitButton = document.getElementById('submit-button');
             const url = 'https://docs.google.com/forms/d/e/1FAIpQLSe7WhgKEuIkK121dCIaKZF2r23Dd-KlHcRcSrvckXlhJnJe9w/formResponse';
