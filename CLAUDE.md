@@ -16,8 +16,8 @@
 - 每次改完 UI，先在手機寬度（375px）review：截圖每個區塊、確認 `document.documentElement.scrollWidth` 不超過視窗寬度、文字斷行自然、表單好點好填。
 - 手機確認後，再用桌機寬度檢查有沒有跑版。至少看 1280×800、1920×1080、768×1024，用原尺寸截圖逐區塊看清楚，並確認照片沒有被截到人物。
 - 首頁主視覺是照片輪播：`assets/hero/01.jpg`～`10.jpg`，依檔名順序播放，每 1.5 秒換一張，換的時候 0.5 秒淡入淡出（`setInterval` 1500ms，CSS `transition: opacity 0.5s`）。下一張還沒載完就先停在目前這張。標語、名字、日期一律放在照片下方，不要壓在照片上。
-- 相框是 2:3 直式、圓角，照片**不裁切**（`object-fit: contain`）。直式照片剛好填滿；橫式照片（目前是 02）上下的空白用相框底色 `--accent-soft` 填。曾試過用模糊照片當底，顏色太雜，不採用。
-- 照片原檔在使用者的 Google Drive 資料夾 https://drive.google.com/drive/folders/11XzlrAqM6mAdZl6Ke4OpjakU_6Oe1_3W （檔名 1.jpg～10.jpg，每張 6–12MB、sRGB）。放進網站前要縮小：直式寬 1080、橫式寬 1620，JPEG 品質 80、progressive，套用 EXIF 方向並移除 EXIF（含 GPS），10 張合計約 1.2MB。增減照片時要同時改 `index.html` 裡 `.hero-frame` 的 `<img>` 清單。
+- 相框是 2:3 直式、圓角，`object-fit: contain`，相框底色 `--accent-soft`。所有照片都是 2:3 直式，剛好填滿。02 原本是橫式（3:2），使用者決定裁成 2:3 填滿相框，可以稍微切到人：從原檔（6816×4544）裁 x=1788、寬 3029 的區域，兩人置中，新郎右手臂和新娘裙襬左側會切掉一點。
+- 照片原檔（02 以外都沒裁切）在使用者的 Google Drive 資料夾 https://drive.google.com/drive/folders/11XzlrAqM6mAdZl6Ke4OpjakU_6Oe1_3W （檔名 1.jpg～10.jpg，每張 6–12MB、sRGB）。放進網站前要縮小：寬 1080（1080×1620），JPEG 品質 80、progressive，套用 EXIF 方向並移除 EXIF（含 GPS），10 張合計約 1.2MB。增減照片時要同時改 `index.html` 裡 `.hero-frame` 的 `<img>` 清單。
 - 原本的首頁影片（`hero-video.mp4`、`hero-poster.jpg`）已刪除，需要時可從 git 歷史找回。
 - 背景音樂放在 `assets/music.mp3`，右下角的音樂開關鈕會先用 HEAD 請求確認檔案存在才顯示；沒有這個檔案時按鈕自動隱藏。瀏覽器不允許有聲音的自動播放，所以音樂只會在訪客點按鈕後開始。
 - 目前的 `assets/music.mp3` 是 CHEEZE〈My Romance〉（韓劇《海岸村恰恰恰》原聲帶，℗ 2021 Stone Music Entertainment），由使用者從 Google Drive 提供，來源是 YouTube。**這首有版權、沒有取得公開網站的使用授權**，Claude 已說明風險（可能收到 DMCA 下架），使用者決定照樣使用。原檔 256kbps（5.5MB），已壓成 128kbps（約 2.8MB）並移除檔案內的標籤。之前用的是公有領域的帕海貝爾〈卡農〉（美國空軍樂團 Strolling Strings 演奏）：https://commons.wikimedia.org/wiki/File:Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3 ，要換回無版權疑慮的音樂時可用。換音樂時要確認授權允許用在公開網站。
