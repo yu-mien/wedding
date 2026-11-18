@@ -19,7 +19,7 @@
 - `<video>` 必須保留 `autoplay muted loop playsinline webkit-playsinline`，少了 `muted` 或 `playsinline`，iPhone 不會自動播放。換影片時記得用 `ffmpeg -c copy -movflags +faststart` 把 moov 移到檔頭，並重新產生 poster。
 - iPhone 開「低耗電模式」時，Safari 會擋掉所有影片自動播放（連 muted 也擋），並顯示大播放鍵。網頁已用 CSS 藏起這個播放鍵，改成在訪客第一次觸碰、點擊或捲動時呼叫 `play()`；回到前景時也會再試一次。這個情況無法在電腦瀏覽器重現，要用真的 iPhone 開低耗電模式測。
 - 首頁影片已移除音軌（原本是無聲的），沒有音樂。背景音樂另外放在 `assets/music.mp3`，右下角的音樂開關鈕會先用 HEAD 請求確認檔案存在才顯示；沒有這個檔案時按鈕自動隱藏。瀏覽器不允許有聲音的自動播放，所以音樂只會在訪客點按鈕後開始。
-- 目前的 `assets/music.mp3` 是帕海貝爾〈卡農〉，由美國空軍樂團 Strolling Strings 演奏（Frank Hudson 編曲，2004）。這是美國政府作品，屬於公有領域，不需要標示作者。來源：https://commons.wikimedia.org/wiki/File:Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3 ，原檔 10.3MB，已壓成 128kbps（約 3.5MB）。換音樂時要確認授權允許用在公開網站。
+- 目前的 `assets/music.mp3` 是 CHEEZE〈My Romance〉（韓劇《海岸村恰恰恰》原聲帶，℗ 2021 Stone Music Entertainment），由使用者從 Google Drive 提供，來源是 YouTube。**這首有版權、沒有取得公開網站的使用授權**，Claude 已說明風險（可能收到 DMCA 下架），使用者決定照樣使用。原檔 256kbps（5.5MB），已壓成 128kbps（約 2.8MB）並移除檔案內的標籤。之前用的是公有領域的帕海貝爾〈卡農〉（美國空軍樂團 Strolling Strings 演奏）：https://commons.wikimedia.org/wiki/File:Canon_(2004)_-_Strolling_Strings_-_United_States_Air_Force_Band.mp3 ，要換回無版權疑慮的音樂時可用。換音樂時要確認授權允許用在公開網站。
 
 ## 出席回函表單必須與 Google 表單保持一致
 
