@@ -15,7 +15,7 @@
 - CSS 以手機為基準撰寫，桌機調整只放在 `@media (min-width: 768px)` 裡。
 - 每次改完 UI，先在手機寬度（375px）review：截圖每個區塊、確認 `document.documentElement.scrollWidth` 不超過視窗寬度、文字斷行自然、表單好點好填。
 - 手機確認後，再用桌機寬度檢查有沒有跑版。至少看 1280×800、1920×1080、768×1024，用原尺寸截圖逐區塊看清楚，並確認照片沒有被截到人物。
-- 首頁主視覺是照片輪播：`assets/hero/01.jpg`～`10.jpg`，依檔名順序播放，每 1.5 秒換一張，換的時候 0.5 秒淡入淡出（`setInterval` 1500ms，CSS `transition: opacity 0.5s`）。下一張還沒載完就先停在目前這張。標語、名字、日期一律放在照片下方，不要壓在照片上。
+- 首頁主視覺是照片輪播：`assets/hero/01.jpg`～`10.jpg`，依檔名順序播放，每 2 秒換一張，換的時候 0.5 秒淡入淡出（`setInterval` 2000ms，CSS `transition: opacity 0.5s`）。下一張還沒載完就先停在目前這張。標語、名字、日期一律放在照片下方，不要壓在照片上。
 - 相框是 2:3 直式、圓角，`object-fit: contain`，相框底色 `--accent-soft`。所有照片都是 2:3 直式，剛好填滿。02 原本是橫式（3:2），使用者決定裁成 2:3 填滿相框，可以稍微切到人：從原檔（6816×4544）裁 x=1788、寬 3029 的區域，兩人置中，新郎右手臂和新娘裙襬左側會切掉一點。
 - 照片原檔（02 以外都沒裁切）在使用者的 Google Drive 資料夾 https://drive.google.com/drive/folders/11XzlrAqM6mAdZl6Ke4OpjakU_6Oe1_3W （檔名 1.jpg～10.jpg，每張 6–12MB、sRGB）。放進網站前要縮小：寬 1080（1080×1620），JPEG 品質 80、progressive，套用 EXIF 方向並移除 EXIF（含 GPS），10 張合計約 1.2MB。增減照片時要同時改 `index.html` 裡 `.hero-frame` 的 `<img>` 清單。
 - 原本的首頁影片（`hero-video.mp4`、`hero-poster.jpg`）已刪除，需要時可從 git 歷史找回。

@@ -287,7 +287,7 @@
     </nav>
 
     <section id="home" class="hero">
-        <!-- 照片依檔名順序輪播，每 1.5 秒換一張（0.5 秒淡入淡出） -->
+        <!-- 照片依檔名順序輪播，每 2 秒換一張（0.5 秒淡入淡出） -->
         <div class="hero-frame" role="img" aria-label="YUAN 與 MIEN 的婚紗照">
             <img src="assets/hero/01.jpg" alt="" class="active" fetchpriority="high" decoding="async">
             <img src="assets/hero/02.jpg" alt="" decoding="async">
@@ -611,7 +611,7 @@
             musicToggle.setAttribute('aria-label', '播放背景音樂');
         });
 
-        // 首頁照片輪播：每 1.5 秒換下一張；下一張還沒載完就先等，不會閃出空白
+        // 首頁照片輪播：每 2 秒換下一張；下一張還沒載完就先等，不會閃出空白
         const heroSlides = document.querySelectorAll('.hero-frame img');
         let heroIndex = 0;
         setInterval(() => {
@@ -620,7 +620,7 @@
             heroSlides[heroIndex].classList.remove('active');
             next.classList.add('active');
             heroIndex = (heroIndex + 1) % heroSlides.length;
-        }, 1500);
+        }, 2000);
     </script>
 </body>
 </html>
